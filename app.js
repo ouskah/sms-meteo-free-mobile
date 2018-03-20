@@ -1,16 +1,16 @@
 var request = require("request");
 
 // Documentation de l'API forecast : https://openweathermap.org/forecast5
-// Actuelle + 3h, Paris + celsius + français
+// Actuelle + 3h, Paris (2988507) + celsius + français
 function meteo(){
-	request("https://api.openweathermap.org/data/2.5/forecast?id=2988507&units=metric&lang=fr&cnt=2&APPID="+process.env.WEATHER_KEY, function (error, response) {
+	request("https://api.openweathermap.org/data/2.5/forecast?id=3020392&units=metric&lang=fr&cnt=2&APPID="+process.env.WEATHER_KEY, function (error, response) {
 	console.log("\nmeteo");
 	console.log("error:", error); 
 	console.log("statusCode:", response && response.statusCode);
 	console.log('body:', JSON.parse(response.body));
 
 	var a = JSON.parse(response.body);
-	SMS(parse(a.list[0]));
+	SMS(parse(a.list[0]) + " | " + parse(a.list[1]));
 });
 }
 

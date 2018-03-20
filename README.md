@@ -17,7 +17,7 @@ Pour y parvenir, l'application utilise :
 Les forfaits téléphoniques de Free Mobile permettent de s'envoyer gratuitement des SMS en envoyant une requête HTTP à une adresse précise. Cette option doit auparavant être activée depuis l'[espace abonné](https://mobile.free.fr/moncompte/).
 
 Un extrait de la documentation officielle de ce service :
-
+'
 L'envoi du SMS se fait en appelant le lien suivant : https://smsapi.free-mobile.fr/sendmsg
 avec les paramètres suivants :
 
@@ -27,8 +27,8 @@ avec les paramètres suivants :
 
 Exemple : Envoyer le message "Hello World !" sur votre mobile :
 
-https://smsapi.free-mobile.fr/sendmsg?user=<identifiant>&pass=<mot_de_passe>&msg=Hello%20World%20!
-
+https://smsapi.free-mobile.fr/sendmsg?user=identifiant&pass=mot_de_passe&msg=Hello%20World%20!
+'
 ## Utilisation
 
 L'application fonctionne pour l'instant en local, avec l'interface en ligne de commande proposée par Heroku 

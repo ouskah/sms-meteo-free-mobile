@@ -6,10 +6,6 @@
   "dependencies": {
     "request": "^2.83.0"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Romain Willmann",
   "license": "MIT"
 }

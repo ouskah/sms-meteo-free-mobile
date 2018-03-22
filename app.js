@@ -1,16 +1,19 @@
 var request = require("request");
 
+var sms = require("./sms");
+
+
 // Documentation de l'API forecast : https://openweathermap.org/forecast5
 // Actuelle + 3h, Paris (2988507) + celsius + français
 function meteo(){
-	request("https://api.openweathermap.org/data/2.5/forecast?id=3020392&units=metric&lang=fr&cnt=2&APPID="+process.env.WEATHER_KEY, function (error, response) {
+	request("https://api.openweathermap.org/data/2.5/forecast?id=2988507&units=metric&lang=fr&cnt=2&APPID="+process.env.WEATHER_KEY, function (error, response) {
 	console.log("\nmeteo");
 	console.log("error:", error); 
 	console.log("statusCode:", response && response.statusCode);
-	console.log('body:', JSON.parse(response.body));
+	console.log("body:", JSON.parse(response.body));
 
 	var a = JSON.parse(response.body);
-	SMS(parse(a.list[0]) + " | " + parse(a.list[1]));
+	sms(parse(a.list[0]) + " | " + parse(a.list[1]));
 });
 }
 
@@ -28,17 +31,9 @@ function parse(json){
 
 
 
-// Déclenche l'envoi d'un SMS avec Free Mobile
-// Les identifiants proviennent d'un fichier .env
-function SMS(text){
-request("https://smsapi.free-mobile.fr/sendmsg?user="+process.env.SMS_ID+"&pass="+process.env.SMS_LOGIN+"&msg="+text, function (error, response) {
-	console.log("\nfree");
-	console.log("error:", error); // Affiche un code d'erreur si besoin
-	console.log("statusCode:", response && response.statusCode); // Affiche le statut et la réponse
-});
-}
 
 
 // Déclenchement de l'application 
 meteo();
+
 
